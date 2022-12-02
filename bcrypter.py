@@ -5,7 +5,7 @@ from multiprocessing import Pool
 
 def decoder(value):
     try:
-        hash_value = '$2a$12$1h/shDU9qZCRV/UHhapZI.vwsR4a1sae0VWFUll9fkKgmaT5hVWEa'
+        hash_value = 'hash'
         check_bc = bcrypt.checkpw(value.encode(), hash_value.encode())
         if check_bc:
             print('\n[★] T: ' + str(value) + ':' + str(hash_value))
@@ -19,8 +19,8 @@ def decoder(value):
 
 
 if __name__ == "__main__":
-    path = "E:/工具/fuzzDicts-master/fuzzDicts-master/passwordDict/top500.txt"
-    with open("test.txt", "r") as f:
+    path = "./passwd.txt"
+    with open(path, "r") as f:
         passwd = [i.strip() for i in f.readlines()]
 
     pass_pool = Pool(20)
