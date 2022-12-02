@@ -11,7 +11,7 @@ from multiprocessing import Pool
 """
 def core(value):
     try:
-        hash_value = 'hash'
+        hash_value = 'hash'     # <--input you hash
         check_bc = bcrypt.checkpw(value.encode(), hash_value.encode())
         if check_bc:
             print('\n[★] T: ' + str(value) + ':' + str(hash_value))
@@ -19,7 +19,7 @@ def core(value):
             exit()
         else:
             print('\n[✰] F: ' + str(value))
-        time.sleep(2) # 睡眠一段时间，减小cpu压力
+        time.sleep(2)   # 睡眠一段时间，减小cpu压力
     except Exception as err:
         print(err)
 
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     """
     加载字典
     """
-    path = "./passwd.txt"
+    path = "./passwd.txt"   # <--input your password
     with open(path, "r") as f:
         passwd = [i.strip() for i in f.readlines()]
     """
